@@ -1,0 +1,50 @@
+# ===================================================================== #
+# Rocky Linux 9.1 (Blue Onyx) - Arch: x86_64
+# ===================================================================== #
+
+# VM type: "qemu" or "vz" (on macOS 13 and later).
+# The vmType can be specified only on creating the instance.
+# The vmType of existing instances cannot be changed.
+# 🟢 Builtin default: "qemu"
+vmType: "vz"
+
+# Arch: "default", "x86_64", "aarch64".
+# 🟢 Builtin default: "default" (corresponds to the host architecture)
+arch: "x86_64"
+
+# OpenStack-compatible disk image.
+# 🟢 Builtin default: null (must be specified)
+# 🔵 This file: Rocky Linux 9.1 Blue Onyx images
+images:
+- location: "https://dl.rockylinux.org/pub/rocky/9.1/images/x86_64/Rocky-9-GenericCloud-Base-9.1-20230215.0.x86_64.qcow2"
+  arch: "x86_64"
+  digest: "sha256:53850338cd7e918052e13fc0a34b8383675ac747e168f640cfb7f483e65eac65"
+- location: "https://dl.rockylinux.org/pub/rocky/9.1/images/aarch64/Rocky-9-GenericCloud-Base-9.1-20230215.0.aarch64.qcow2"
+  arch: "aarch64"
+  digest: "sha256:6991592f3308376d63c5a69b353586cee1d67077f1af6d0a3f12126b11a13829"
+
+# CPUs: if you see performance issues, try limiting cpus to 1.
+# 🟢 Builtin default: 4
+cpus: 4
+
+# Memory size
+# 🟢 Builtin default: "4GiB"
+memory: "8GiB"
+
+# Disk size
+# 🟢 Builtin default: "100GiB"
+disk: "64GiB"
+
+# Expose host directories to the guest, the mount point might be accessible from all UIDs in the guest
+# 🟢 Builtin default: null (Mount nothing)
+# 🔵 This file: Mount the home as read-only, /tmp/lima as writable
+mounts:
+- location: "~"
+  # CAUTION: `writable` SHOULD be false for the home directory.
+  # Setting `writable` to true is possible, but untested and dangerous.
+  # 🟢 Builtin default: false
+  writable: false
+- location: "/tmp/lima"
+  # 🟢 Builtin default: false
+  # 🔵 This file: true (only for "/tmp/lima")
+  writable: true
