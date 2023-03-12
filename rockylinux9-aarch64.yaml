@@ -6,7 +6,7 @@
 # The vmType can be specified only on creating the instance.
 # The vmType of existing instances cannot be changed.
 # 🟢 Builtin default: "qemu"
-vmType: "vz"
+vmType: "qemu"
 
 # Arch: "default", "x86_64", "aarch64".
 # 🟢 Builtin default: "default" (corresponds to the host architecture)
