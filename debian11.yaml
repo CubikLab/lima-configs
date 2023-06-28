@@ -16,12 +16,19 @@ arch: "default"
 # 🟢 Builtin default: null (must be specified)
 # 🔵 This file: Debian 11 Bullseye images
 images:
-- location: "https://cloud.debian.org/images/cloud/bullseye/20230124-1270/debian-11-generic-amd64-20230124-1270.qcow2"
+# Try to use release-yyyyMMdd image if available. Note that release-yyyyMMdd will be removed after several months.
+- location: "https://cloud.debian.org/images/cloud/bullseye/20230515-1381/debian-11-genericcloud-amd64-20230515-1381.qcow2"
   arch: "x86_64"
-  digest: "sha512:fa152c6159dcb73adb1b573da3631937068c6a465ce7565a16dcce7aebd27c9a62ad783296d408300b99616cad89b8c0092e11df0fc2aa423334d741ac83b1a2"
-- location: "https://cloud.debian.org/images/cloud/bullseye/20230124-1270/debian-11-generic-arm64-20230124-1270.qcow2"
+  digest: "sha512:bf6e2e8550dd1f296338e8f6dedaa7bd3d4e31de73ef33e46882430af055a2ce0df9da27c30c159f8d544220a6cf428083724685c4472334fcd7c1191cbbfe27"
+- location: "https://cloud.debian.org/images/cloud/bullseye/20230515-1381/debian-11-genericcloud-arm64-20230515-1381.qcow2"
   arch: "aarch64"
-  digest: "sha512:d714ed2b70322bb2c4adc588f96671192a5ca67f70e20c3fb51c89d55b6a9646f00a6e6f0e5da241b7017916bb19b65a5703a1e3b3869a89c0da7047ac6c4e53"
+  digest: "sha512:895806e31400c6322fbf240349228a5cf8040e1fac8d1ab3e12ee3a0e11d15ee733ff6d27e0b4db9cbd7adac02dfda1eff34f3174c7898caefb4026c51269823"
+# Fallback to the latest release image.
+# Hint: run `limactl prune` to invalidate the cache
+- location: "https://cloud.debian.org/images/cloud/bullseye/latest/debian-11-genericcloud-amd64.qcow2"
+  arch: "x86_64"
+- location: "https://cloud.debian.org/images/cloud/bullseye/latest/debian-11-genericcloud-arm64.qcow2"
+  arch: "aarch64"
 
 # CPUs: if you see performance issues, try limiting cpus to 1.
 # 🟢 Builtin default: 4
