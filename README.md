@@ -34,26 +34,6 @@ limactl start --name=debian11-x86_64 https://raw.githubusercontent.com/CubikLab/
 limactl start --name=debian11-aarch64 https://raw.githubusercontent.com/CubikLab/lima-configs/main/debian11-aarch64.yaml
 ```
 
-### Fedora 37
-
-#### Same as Host Arch
-
-```bash
-limactl start --name=fedora37 https://raw.githubusercontent.com/CubikLab/lima-configs/main/fedora37.yaml
-```
-
-#### x86_64
-
-```bash
-limactl start --name=fedora37-x86_64 https://raw.githubusercontent.com/CubikLab/lima-configs/main/fedora37-x86_64.yaml
-```
-
-#### aarch64
-
-```bash
-limactl start --name=fedora37-aarch64 https://raw.githubusercontent.com/CubikLab/lima-configs/main/fedora37-aarch64.yaml
-```
-
 ### Rocky Linux 9 (Blue Onyx)
 
 #### Same as Host Arch
